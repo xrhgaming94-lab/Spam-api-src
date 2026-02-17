@@ -57,7 +57,7 @@ def spam():
     key = request.args.get("key")
     
     # Key validation by @STAR_RDP
-    if key != "SYCO":
+    if key != "STAR":
         return jsonify({
             "error": "Invalid or missing key 🔐",
             "owner": "@STAR_RDP"
