@@ -94,17 +94,46 @@ async def main():
                 
                 # रीजन कोड के आधार पर टोकन को सही लिस्ट में डालें
                 region_code = token_data.get('region', '').upper()
-                if region_code == 'IND':
-                    region = 'IND'
-                elif region_code in {'BR', 'US', 'SAC', 'NA'}:
-                    region = 'BR'
-                else:
-                    region = 'BD'
-                
-                result[region].append({
-                    'uid': account['uid'],
-                    'token': token_data['token']
-                })
+
+if region_code == 'IND':
+    region = 'IND'
+elif region_code == 'SG':
+    region = 'SG'
+elif region_code == 'ID':
+    region = 'ID'
+elif region_code == 'BR':
+    region = 'BR'
+elif region_code == 'VN':
+    region = 'VN'
+elif region_code == 'US':
+    region = 'US'
+elif region_code == 'SAC':
+    region = 'SAC'
+elif region_code == 'NA':
+    region = 'NA'
+elif region_code == 'RU':
+    region = 'RU'
+elif region_code == 'TH':
+    region = 'TH'
+elif region_code == 'TW':
+    region = 'TW'
+elif region_code == 'BD':
+    region = 'BD'
+elif region_code == 'PK':
+    region = 'PK'
+elif region_code == 'ME':
+    region = 'ME'
+elif region_code == 'CIS':
+    region = 'CIS'
+elif region_code == 'EU':
+    region = 'EU'
+else:
+    region = 'BD'  # Default region
+
+result[region].append({
+    'uid': account['uid'],
+    'token': token_data['token']
+})
                 print(f"✅ UID #{res['index'] + 1} {account['uid']} - टोकन जेनरेट हुआ ({region})")
             else:
                 # जो अकाउंट फ़ेल हो गए उन्हें लिस्ट में जोड़ें
@@ -114,7 +143,7 @@ async def main():
     # परिणामी टोकन को फ़ाइलों में सेव करें
     for region, tokens in result.items():
         if tokens:
-            filename = f'tokens_{region.lower()}.json'
+            filename = f'token_{region.lower()}.json'
             with open(filename, 'w') as f:
                 json.dump(tokens, f, indent=2)
             print(f"💾 {len(tokens)} टोकन {filename} में सेव किए गए।")
