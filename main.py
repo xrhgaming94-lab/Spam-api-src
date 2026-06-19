@@ -114,7 +114,7 @@ async def main():
     # परिणामी टोकन को फ़ाइलों में सेव करें
     for region, tokens in result.items():
         if tokens:
-            filename = f'token_{region.lower()}.json'
+            filename = f'tokens_{region.lower()}.json'
             with open(filename, 'w') as f:
                 json.dump(tokens, f, indent=2)
             print(f"💾 {len(tokens)} टोकन {filename} में सेव किए गए।")
