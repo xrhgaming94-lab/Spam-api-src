@@ -93,7 +93,7 @@ def get_player_info(uid, region):
         'Content-Type': "application/x-www-form-urlencoded",
         'X-Unity-Version': "2018.4.11f1",
         'X-GA': "v1 1",
-        'ReleaseVersion': "OB53"
+        'ReleaseVersion': "OB54"
     }
 
     response = requests.post(url, data=edata, headers=headers, verify=False, timeout=10)
@@ -124,7 +124,7 @@ def send_friend_request(uid, token, domain, results, lock):
             "Authorization": f"Bearer {token}",
             "X-Unity-Version": "2018.4.11f1",
             "X-GA": "v1 1",
-            "ReleaseVersion": "OB53",
+            "ReleaseVersion": "OB54",
             "Content-Type": "application/x-www-form-urlencoded",
             "User-Agent": "Dalvik/2.1.0"
         }
